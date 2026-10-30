@@ -1,0 +1,156 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Playfair Display", "Fraunces", Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "Space Mono", monospace;
+  
+  --color-outer-canvas: #EFA6C5;
+  --color-dark-surface: #171719;
+  --color-card-bg: #252731;
+  --color-primary-pink: #F35A9D;
+  --color-soft-pink: #F7BBD4;
+  --color-text-main: #F8F4F7;
+  --color-text-muted: #B8B4C0;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #EFA6C5;
+  color: #F8F4F7;
+  margin: 0;
+  padding: 0;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+::-webkit-scrollbar-track {
+  background: #171719;
+}
+::-webkit-scrollbar-thumb {
+  background: #F35A9D;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #F7BBD4;
+}
+
+/* Editorial Serif Utility */
+.font-editorial {
+  font-family: var(--font-serif);
+}
+
+/* Dark Card Base */
+.card-dark {
+  background-color: #252731;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 1.5rem;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-dark:hover {
+  transform: translateY(-4px);
+  border-color: rgba(243, 90, 157, 0.35);
+  box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.5), 0 0 20px -2px rgba(243, 90, 157, 0.2);
+}
+
+/* Pink Pill Button */
+.btn-pink-pill {
+  background-color: #F35A9D;
+  color: #FFFFFF;
+  border-radius: 9999px;
+  font-weight: 600;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 20px rgba(243, 90, 157, 0.35);
+}
+
+.btn-pink-pill:hover {
+  background-color: #FFFFFF;
+  color: #171719;
+  box-shadow: 0 6px 26px rgba(255, 255, 255, 0.4);
+  transform: translateY(-1px);
+}
+
+/* Secondary Dark Button */
+.btn-secondary-pill {
+  background-color: rgba(255, 255, 255, 0.06);
+  color: #F8F4F7;
+  border: 1px solid rgba(247, 187, 212, 0.25);
+  border-radius: 9999px;
+  font-weight: 500;
+  transition: all 0.25s ease;
+}
+
+.btn-secondary-pill:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+  border-color: #F35A9D;
+  color: #FFFFFF;
+  transform: translateY(-1px);
+}
+
+/* Abstract Pink Marbled Pattern */
+.bg-pink-marbled {
+  background: radial-gradient(circle at 30% 20%, #F7BBD4 0%, #F35A9D 45%, #C23375 80%, #171719 120%);
+}
+
+/* Fluid Animated Gradient */
+@keyframes fluidShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-fluid {
+  background-size: 200% 200%;
+  animation: fluidShift 12s ease infinite;
+}
+
+/* Floating animation */
+@keyframes floatSubtle {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(1deg);
+  }
+}
+
+.animate-float {
+  animation: floatSubtle 6s ease-in-out infinite;
+}
+
+/* Hide scrollbar for category tabs */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Print styling for resume */
+@media print {
+  body {
+    background-color: #ffffff !important;
+    color: #1a1a1a !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+}
